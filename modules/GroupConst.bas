@@ -7,8 +7,3 @@ Public Const システム運用 As String = "システム運用"
 Public Const セキュリティ As String = "セキュリティサービス"
 Public Const グローバルマーケット As String = "グローバルマーケット"
 Public Const ワークステクノロジー As String = "WT"
-
-
-
-
-

@@ -1,314 +1,311 @@
 Option Explicit
 
-'************************************************
-'ˆµ‚¤‰c‹Æƒf[ƒ^ƒNƒ‰ƒX
-'************************************************
-
-Private str‰c‹Æ’S“– As String
-Private str–‹Æ‹æ•ª As String
-Private strŒÚ‹q–¼Ì As String
+'ãƒ¡ãƒ³ãƒå¤‰æ•°
+Private strå–¶æ¥­æ‹…å½“ As String
+Private sträº‹æ¥­åŒºåˆ† As String
+Private stré¡§å®¢åç§° As String
 Private strWorkNo As String
-Private strˆÄŒ–¼ As String
+Private stræ¡ˆä»¶å As String
 Private strGRP As String
-Private str‹æ•ª1 As String
-Private str‹æ•ª2 As String
-Private stró’Œ© As String
-Private strƒtƒF[ƒY As String
-Private strŠJn”NŒ As String
-Private strŒŸû”NŒ As String
-Private str”„ã”NŒ As String
-Private strÅIXV“ú As String
-Private lngŸ”N“xŒvã As Long
-Private str”„ã‹àŠz As String
-Private str”„ã1Œ As String
-Private str”„ã2Œ As String
-Private str”„ã3Œ As String
-Private str”„ã4Œ As String
-Private str”„ã5Œ As String
-Private str”„ã6Œ As String
-Private str”„ã7Œ As String
-Private str”„ã8Œ As String
-Private str”„ã9Œ As String
-Private str”„ã10Œ As String
-Private str”„ã11Œ As String
-Private str”„ã12Œ As String
+Private stråŒºåˆ†1 As String
+Private stråŒºåˆ†2 As String
+Private strå—æ³¨è¦‹è¾¼ As String
+Private strãƒ•ã‚§ãƒ¼ã‚º As String
+Private stré–‹å§‹å¹´æœˆ As String
+Private stræ¤œåå¹´æœˆ As String
+Private strå£²ä¸Šå¹´æœˆ As String
+Private stræœ€çµ‚æ›´æ–°æ—¥ As String
+Private lngæ¬¡å¹´åº¦è¨ˆä¸Š As Long
+Private strå£²ä¸Šé‡‘é¡ As String
+Private strå£²ä¸Š1æœˆ As String
+Private strå£²ä¸Š2æœˆ As String
+Private strå£²ä¸Š3æœˆ As String
+Private strå£²ä¸Š4æœˆ As String
+Private strå£²ä¸Š5æœˆ As String
+Private strå£²ä¸Š6æœˆ As String
+Private strå£²ä¸Š7æœˆ As String
+Private strå£²ä¸Š8æœˆ As String
+Private strå£²ä¸Š9æœˆ As String
+Private strå£²ä¸Š10æœˆ As String
+Private strå£²ä¸Š11æœˆ As String
+Private strå£²ä¸Š12æœˆ As String
 
-'‰c‹Æ’S“–ƒvƒƒpƒeƒB(æ“¾)
-Public Property Get ‰c‹Æ’S“–() As String
-   ‰c‹Æ’S“– = str‰c‹Æ’S“–
+'å–¶æ¥­æ‹…å½“ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£(å–å¾—)
+Public Property Get å–¶æ¥­æ‹…å½“() As String
+   å–¶æ¥­æ‹…å½“ = strå–¶æ¥­æ‹…å½“
 End Property
 
-'‰c‹Æ’S“–ƒvƒƒpƒeƒB(•ÏX)
-Public Property Let ‰c‹Æ’S“–(ByVal vNewValue As String)
-   str‰c‹Æ’S“– = vNewValue
+'å–¶æ¥­æ‹…å½“ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£(å¤‰æ›´)
+Public Property Let å–¶æ¥­æ‹…å½“(ByVal vNewValue As String)
+   strå–¶æ¥­æ‹…å½“ = vNewValue
 End Property
 
-'‰c‹Æ‹æ•ªƒvƒƒpƒeƒB(æ“¾)
-Public Property Get –‹Æ‹æ•ª() As String
-   –‹Æ‹æ•ª = str–‹Æ‹æ•ª
+'äº‹æ¥­åŒºåˆ†ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£(å–å¾—)
+Public Property Get äº‹æ¥­åŒºåˆ†() As String
+   äº‹æ¥­åŒºåˆ† = sträº‹æ¥­åŒºåˆ†
 End Property
 
-'‰c‹Æ‹æ•ªƒvƒƒpƒeƒB(•ÏX)
-Public Property Let –‹Æ‹æ•ª(ByVal vNewValue As String)
-   str–‹Æ‹æ•ª = vNewValue
+'äº‹æ¥­åŒºåˆ†ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£(å¤‰æ›´)
+Public Property Let äº‹æ¥­åŒºåˆ†(ByVal vNewValue As String)
+   sträº‹æ¥­åŒºåˆ† = vNewValue
 End Property
 
-'ŒÚ‹q–¼ÌƒvƒƒpƒeƒB(æ“¾)
-Public Property Get ŒÚ‹q–¼Ì() As String
-   ŒÚ‹q–¼Ì = strŒÚ‹q–¼Ì
+'é¡§å®¢åç§°ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£(å–å¾—)
+Public Property Get é¡§å®¢åç§°() As String
+   é¡§å®¢åç§° = stré¡§å®¢åç§°
 End Property
 
-'ŒÚ‹q–¼ÌƒvƒƒpƒeƒB(•ÏX)
-Public Property Let ŒÚ‹q–¼Ì(ByVal vNewValue As String)
-   strŒÚ‹q–¼Ì = vNewValue
+'é¡§å®¢åç§°ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£(å¤‰æ›´)
+Public Property Let é¡§å®¢åç§°(ByVal vNewValue As String)
+   stré¡§å®¢åç§° = vNewValue
 End Property
 
-'WorkNoƒvƒƒpƒeƒB(æ“¾)
+'WorkNoãƒ—ãƒ­ãƒ‘ãƒ†ã‚£(å–å¾—)
 Public Property Get WorkNo() As String
    WorkNo = strWorkNo
 End Property
 
-'WorkNoƒvƒƒpƒeƒB(•ÏX)
+'WorkNoãƒ—ãƒ­ãƒ‘ãƒ†ã‚£(å¤‰æ›´)
 Public Property Let WorkNo(ByVal vNewValue As String)
    strWorkNo = vNewValue
 End Property
 
-'ˆÄŒ–¼ƒvƒƒpƒeƒB(æ“¾)
-Public Property Get ˆÄŒ–¼() As String
-   ˆÄŒ–¼ = strˆÄŒ–¼
+'æ¡ˆä»¶åãƒ—ãƒ­ãƒ‘ãƒ†ã‚£(å–å¾—)
+Public Property Get æ¡ˆä»¶å() As String
+   æ¡ˆä»¶å = stræ¡ˆä»¶å
 End Property
 
-'ˆÄŒ–¼ƒvƒƒpƒeƒB(•ÏX)
-Public Property Let ˆÄŒ–¼(ByVal vNewValue As String)
-   strˆÄŒ–¼ = vNewValue
+'æ¡ˆä»¶åãƒ—ãƒ­ãƒ‘ãƒ†ã‚£(å¤‰æ›´)
+Public Property Let æ¡ˆä»¶å(ByVal vNewValue As String)
+   stræ¡ˆä»¶å = vNewValue
 End Property
 
-'GRPƒvƒƒpƒeƒB(æ“¾)
-Public Property Get GRP() As String
-   GRP = strGRP
+'GRPãƒ—ãƒ­ãƒ‘ãƒ†ã‚£(å–å¾—)
+Public Property Get grp() As String
+   grp = strGRP
 End Property
 
-'GRPƒvƒƒpƒeƒB(•ÏX)
-Public Property Let GRP(ByVal vNewValue As String)
+'GRPãƒ—ãƒ­ãƒ‘ãƒ†ã‚£(å¤‰æ›´)
+Public Property Let grp(ByVal vNewValue As String)
    strGRP = vNewValue
 End Property
 
-'‹æ•ª1ƒvƒƒpƒeƒB(æ“¾)
-Public Property Get ‹æ•ª1() As String
-   ‹æ•ª1 = str‹æ•ª1
+'åŒºåˆ†1ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£(å–å¾—)
+Public Property Get åŒºåˆ†1() As String
+   åŒºåˆ†1 = stråŒºåˆ†1
 End Property
 
-'‹æ•ª1ƒvƒƒpƒeƒB(•ÏX)
-Public Property Let ‹æ•ª1(ByVal vNewValue As String)
-   str‹æ•ª1 = vNewValue
+'åŒºåˆ†1ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£(å¤‰æ›´)
+Public Property Let åŒºåˆ†1(ByVal vNewValue As String)
+   stråŒºåˆ†1 = vNewValue
 End Property
 
-'‹æ•ª2ƒvƒƒpƒeƒB(æ“¾)
-Public Property Get ‹æ•ª2() As String
-   ‹æ•ª2 = str‹æ•ª2
+'åŒºåˆ†2ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£(å–å¾—)
+Public Property Get åŒºåˆ†2() As String
+   åŒºåˆ†2 = stråŒºåˆ†2
 End Property
 
-'‹æ•ª2ƒvƒƒpƒeƒB(•ÏX)
-Public Property Let ‹æ•ª2(ByVal vNewValue As String)
-   str‹æ•ª2 = vNewValue
+'åŒºåˆ†2ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£(å¤‰æ›´)
+Public Property Let åŒºåˆ†2(ByVal vNewValue As String)
+   stråŒºåˆ†2 = vNewValue
 End Property
 
-'ó’Œ©ƒvƒƒpƒeƒB(æ“¾)
-Public Property Get ó’Œ©() As String
-   ó’Œ© = stró’Œ©
+'å—æ³¨è¦‹è¾¼ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£(å–å¾—)
+Public Property Get å—æ³¨è¦‹è¾¼() As String
+   å—æ³¨è¦‹è¾¼ = strå—æ³¨è¦‹è¾¼
 End Property
 
-'ó’Œ©ƒvƒƒpƒeƒB(•ÏX)
-Public Property Let ó’Œ©(ByVal vNewValue As String)
-   stró’Œ© = vNewValue
+'å—æ³¨è¦‹è¾¼ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£(å¤‰æ›´)
+Public Property Let å—æ³¨è¦‹è¾¼(ByVal vNewValue As String)
+   strå—æ³¨è¦‹è¾¼ = vNewValue
 End Property
 
-'ƒtƒF[ƒYƒvƒƒpƒeƒB(æ“¾)
-Public Property Get ƒtƒF[ƒY() As String
-   ƒtƒF[ƒY = strƒtƒF[ƒY
+'ãƒ•ã‚§ãƒ¼ã‚ºãƒ—ãƒ­ãƒ‘ãƒ†ã‚£(å–å¾—)
+Public Property Get ãƒ•ã‚§ãƒ¼ã‚º() As String
+   ãƒ•ã‚§ãƒ¼ã‚º = strãƒ•ã‚§ãƒ¼ã‚º
 End Property
 
-'ƒtƒF[ƒYƒvƒƒpƒeƒB(•ÏX)
-Public Property Let ƒtƒF[ƒY(ByVal vNewValue As String)
-   strƒtƒF[ƒY = vNewValue
+'ãƒ•ã‚§ãƒ¼ã‚ºãƒ—ãƒ­ãƒ‘ãƒ†ã‚£(å¤‰æ›´)
+Public Property Let ãƒ•ã‚§ãƒ¼ã‚º(ByVal vNewValue As String)
+   strãƒ•ã‚§ãƒ¼ã‚º = vNewValue
 End Property
 
-'ŠJn”NŒƒvƒƒpƒeƒB(æ“¾)
-Public Property Get ŠJn”NŒ() As String
-   ŠJn”NŒ = strŠJn”NŒ
+'é–‹å§‹å¹´æœˆãƒ—ãƒ­ãƒ‘ãƒ†ã‚£(å–å¾—)
+Public Property Get é–‹å§‹å¹´æœˆ() As String
+   é–‹å§‹å¹´æœˆ = stré–‹å§‹å¹´æœˆ
 End Property
 
-'ŠJn”NŒƒvƒƒpƒeƒB(•ÏX)
-Public Property Let ŠJn”NŒ(ByVal vNewValue As String)
-   strŠJn”NŒ = vNewValue
+'é–‹å§‹å¹´æœˆãƒ—ãƒ­ãƒ‘ãƒ†ã‚£(å¤‰æ›´)
+Public Property Let é–‹å§‹å¹´æœˆ(ByVal vNewValue As String)
+   stré–‹å§‹å¹´æœˆ = vNewValue
 End Property
 
-'ŒŸû”NŒƒvƒƒpƒeƒB(æ“¾)
-Public Property Get ŒŸû”NŒ() As String
-   ŒŸû”NŒ = strŒŸû”NŒ
+'æ¤œåå¹´æœˆãƒ—ãƒ­ãƒ‘ãƒ†ã‚£(å–å¾—)
+Public Property Get æ¤œåå¹´æœˆ() As String
+   æ¤œåå¹´æœˆ = stræ¤œåå¹´æœˆ
 End Property
 
-'ŒŸû”NŒƒvƒƒpƒeƒB(•ÏX)
-Public Property Let ŒŸû”NŒ(ByVal vNewValue As String)
-   strŒŸû”NŒ = vNewValue
+'æ¤œåå¹´æœˆãƒ—ãƒ­ãƒ‘ãƒ†ã‚£(å¤‰æ›´)
+Public Property Let æ¤œåå¹´æœˆ(ByVal vNewValue As String)
+   stræ¤œåå¹´æœˆ = vNewValue
 End Property
 
-'”„ã”NŒƒvƒƒpƒeƒB(æ“¾)
-Public Property Get ”„ã”NŒ() As String
-   ”„ã”NŒ = str”„ã”NŒ
+'å£²ä¸Šå¹´æœˆãƒ—ãƒ­ãƒ‘ãƒ†ã‚£(å–å¾—)
+Public Property Get å£²ä¸Šå¹´æœˆ() As String
+   å£²ä¸Šå¹´æœˆ = strå£²ä¸Šå¹´æœˆ
 End Property
 
-'”„ã”NŒƒvƒƒpƒeƒB(•ÏX)
-Public Property Let ”„ã”NŒ(ByVal vNewValue As String)
-   str”„ã”NŒ = vNewValue
+'å£²ä¸Šå¹´æœˆãƒ—ãƒ­ãƒ‘ãƒ†ã‚£(å¤‰æ›´)
+Public Property Let å£²ä¸Šå¹´æœˆ(ByVal vNewValue As String)
+   strå£²ä¸Šå¹´æœˆ = vNewValue
 End Property
 
-'ÅIXV“úƒvƒƒpƒeƒB(æ“¾)
-Public Property Get ÅIXV“ú() As String
-   ÅIXV“ú = strÅIXV“ú
+'æœ€çµ‚æ›´æ–°æ—¥ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£(å–å¾—)
+Public Property Get æœ€çµ‚æ›´æ–°æ—¥() As String
+   æœ€çµ‚æ›´æ–°æ—¥ = stræœ€çµ‚æ›´æ–°æ—¥
 End Property
 
-'ÅIXV“úƒvƒƒpƒeƒB(•ÏX)
-Public Property Let ÅIXV“ú(ByVal vNewValue As String)
-   strÅIXV“ú = vNewValue
+'æœ€çµ‚æ›´æ–°æ—¥ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£(å¤‰æ›´)
+Public Property Let æœ€çµ‚æ›´æ–°æ—¥(ByVal vNewValue As String)
+   stræœ€çµ‚æ›´æ–°æ—¥ = vNewValue
 End Property
 
-'Ÿ”N“xŒvãƒvƒƒpƒeƒB(æ“¾)
-Public Property Get Ÿ”N“xŒvã() As Long
-   Ÿ”N“xŒvã = lngŸ”N“xŒvã
+'æ¬¡å¹´åº¦è¨ˆä¸Šãƒ—ãƒ­ãƒ‘ãƒ†ã‚£(å–å¾—)
+Public Property Get æ¬¡å¹´åº¦è¨ˆä¸Š() As Long
+   æ¬¡å¹´åº¦è¨ˆä¸Š = lngæ¬¡å¹´åº¦è¨ˆä¸Š
 End Property
 
-'Ÿ”N“xŒvãƒvƒƒpƒeƒB(•ÏX)
-Public Property Let Ÿ”N“xŒvã(ByVal vNewValue As Long)
-   lngŸ”N“xŒvã = vNewValue
+'æ¬¡å¹´åº¦è¨ˆä¸Šãƒ—ãƒ­ãƒ‘ãƒ†ã‚£(å¤‰æ›´)
+Public Property Let æ¬¡å¹´åº¦è¨ˆä¸Š(ByVal vNewValue As Long)
+   lngæ¬¡å¹´åº¦è¨ˆä¸Š = vNewValue
 End Property
 
-'”„ã‹àŠzƒvƒƒpƒeƒB(æ“¾)
-Public Property Get ”„ã‹àŠz() As String
-   ”„ã‹àŠz = str”„ã‹àŠz
+'å£²ä¸Šé‡‘é¡ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£(å–å¾—)
+Public Property Get å£²ä¸Šé‡‘é¡() As String
+   å£²ä¸Šé‡‘é¡ = strå£²ä¸Šé‡‘é¡
 End Property
 
-'”„ã‹àŠzƒvƒƒpƒeƒB(•ÏX)
-Public Property Let ”„ã‹àŠz(ByVal vNewValue As String)
-   str”„ã‹àŠz = vNewValue
+'å£²ä¸Šé‡‘é¡ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£(å¤‰æ›´)
+Public Property Let å£²ä¸Šé‡‘é¡(ByVal vNewValue As String)
+   strå£²ä¸Šé‡‘é¡ = vNewValue
 End Property
 
-'”„ã1ŒƒvƒƒpƒeƒB(æ“¾)
-Public Property Get ”„ã1Œ() As String
-   ”„ã1Œ = str”„ã1Œ
+'å£²ä¸Š1æœˆãƒ—ãƒ­ãƒ‘ãƒ†ã‚£(å–å¾—)
+Public Property Get å£²ä¸Š1æœˆ() As String
+   å£²ä¸Š1æœˆ = strå£²ä¸Š1æœˆ
 End Property
 
-'”„ã1ŒƒvƒƒpƒeƒB(•ÏX)
-Public Property Let ”„ã1Œ(ByVal vNewValue As String)
-   str”„ã1Œ = vNewValue
+'å£²ä¸Š1æœˆãƒ—ãƒ­ãƒ‘ãƒ†ã‚£(å¤‰æ›´)
+Public Property Let å£²ä¸Š1æœˆ(ByVal vNewValue As String)
+   strå£²ä¸Š1æœˆ = vNewValue
 End Property
 
-'”„ã2ŒƒvƒƒpƒeƒB(æ“¾)
-Public Property Get ”„ã2Œ() As String
-   ”„ã2Œ = str”„ã2Œ
+'å£²ä¸Š2æœˆãƒ—ãƒ­ãƒ‘ãƒ†ã‚£(å–å¾—)
+Public Property Get å£²ä¸Š2æœˆ() As String
+   å£²ä¸Š2æœˆ = strå£²ä¸Š2æœˆ
 End Property
 
-'”„ã2ŒƒvƒƒpƒeƒB(•ÏX)
-Public Property Let ”„ã2Œ(ByVal vNewValue As String)
-   str”„ã2Œ = vNewValue
+'å£²ä¸Š2æœˆãƒ—ãƒ­ãƒ‘ãƒ†ã‚£(å¤‰æ›´)
+Public Property Let å£²ä¸Š2æœˆ(ByVal vNewValue As String)
+   strå£²ä¸Š2æœˆ = vNewValue
 End Property
 
-'”„ã3ŒƒvƒƒpƒeƒB(æ“¾)
-Public Property Get ”„ã3Œ() As String
-   ”„ã3Œ = str”„ã3Œ
+'å£²ä¸Š3æœˆãƒ—ãƒ­ãƒ‘ãƒ†ã‚£(å–å¾—)
+Public Property Get å£²ä¸Š3æœˆ() As String
+   å£²ä¸Š3æœˆ = strå£²ä¸Š3æœˆ
 End Property
 
-'”„ã3ŒƒvƒƒpƒeƒB(•ÏX)
-Public Property Let ”„ã3Œ(ByVal vNewValue As String)
-   str”„ã3Œ = vNewValue
+'å£²ä¸Š3æœˆãƒ—ãƒ­ãƒ‘ãƒ†ã‚£(å¤‰æ›´)
+Public Property Let å£²ä¸Š3æœˆ(ByVal vNewValue As String)
+   strå£²ä¸Š3æœˆ = vNewValue
 End Property
 
-'”„ã4ŒƒvƒƒpƒeƒB(æ“¾)
-Public Property Get ”„ã4Œ() As String
-   ”„ã4Œ = str”„ã4Œ
+'å£²ä¸Š4æœˆãƒ—ãƒ­ãƒ‘ãƒ†ã‚£(å–å¾—)
+Public Property Get å£²ä¸Š4æœˆ() As String
+   å£²ä¸Š4æœˆ = strå£²ä¸Š4æœˆ
 End Property
 
-'”„ã4ŒƒvƒƒpƒeƒB(•ÏX)
-Public Property Let ”„ã4Œ(ByVal vNewValue As String)
-   str”„ã4Œ = vNewValue
+'å£²ä¸Š4æœˆãƒ—ãƒ­ãƒ‘ãƒ†ã‚£(å¤‰æ›´)
+Public Property Let å£²ä¸Š4æœˆ(ByVal vNewValue As String)
+   strå£²ä¸Š4æœˆ = vNewValue
 End Property
 
-'”„ã5ŒƒvƒƒpƒeƒB(æ“¾)
-Public Property Get ”„ã5Œ() As String
-   ”„ã5Œ = str”„ã5Œ
+'å£²ä¸Š5æœˆãƒ—ãƒ­ãƒ‘ãƒ†ã‚£(å–å¾—)
+Public Property Get å£²ä¸Š5æœˆ() As String
+   å£²ä¸Š5æœˆ = strå£²ä¸Š5æœˆ
 End Property
 
-'”„ã5ŒƒvƒƒpƒeƒB(•ÏX)
-Public Property Let ”„ã5Œ(ByVal vNewValue As String)
-   str”„ã5Œ = vNewValue
+'å£²ä¸Š5æœˆãƒ—ãƒ­ãƒ‘ãƒ†ã‚£(å¤‰æ›´)
+Public Property Let å£²ä¸Š5æœˆ(ByVal vNewValue As String)
+   strå£²ä¸Š5æœˆ = vNewValue
 End Property
 
-'”„ã6ŒƒvƒƒpƒeƒB(æ“¾)
-Public Property Get ”„ã6Œ() As String
-   ”„ã6Œ = str”„ã6Œ
+'å£²ä¸Š6æœˆãƒ—ãƒ­ãƒ‘ãƒ†ã‚£(å–å¾—)
+Public Property Get å£²ä¸Š6æœˆ() As String
+   å£²ä¸Š6æœˆ = strå£²ä¸Š6æœˆ
 End Property
 
-'”„ã6ŒƒvƒƒpƒeƒB(•ÏX)
-Public Property Let ”„ã6Œ(ByVal vNewValue As String)
-   str”„ã6Œ = vNewValue
+'å£²ä¸Š6æœˆãƒ—ãƒ­ãƒ‘ãƒ†ã‚£(å¤‰æ›´)
+Public Property Let å£²ä¸Š6æœˆ(ByVal vNewValue As String)
+   strå£²ä¸Š6æœˆ = vNewValue
 End Property
 
-'”„ã7ŒƒvƒƒpƒeƒB(æ“¾)
-Public Property Get ”„ã7Œ() As String
-   ”„ã7Œ = str”„ã7Œ
+'å£²ä¸Š7æœˆãƒ—ãƒ­ãƒ‘ãƒ†ã‚£(å–å¾—)
+Public Property Get å£²ä¸Š7æœˆ() As String
+   å£²ä¸Š7æœˆ = strå£²ä¸Š7æœˆ
 End Property
 
-'”„ã7ŒƒvƒƒpƒeƒB(•ÏX)
-Public Property Let ”„ã7Œ(ByVal vNewValue As String)
-   str”„ã7Œ = vNewValue
+'å£²ä¸Š7æœˆãƒ—ãƒ­ãƒ‘ãƒ†ã‚£(å¤‰æ›´)
+Public Property Let å£²ä¸Š7æœˆ(ByVal vNewValue As String)
+   strå£²ä¸Š7æœˆ = vNewValue
 End Property
 
-'”„ã8ŒƒvƒƒpƒeƒB(æ“¾)
-Public Property Get ”„ã8Œ() As String
-   ”„ã8Œ = str”„ã8Œ
+'å£²ä¸Š8æœˆãƒ—ãƒ­ãƒ‘ãƒ†ã‚£(å–å¾—)
+Public Property Get å£²ä¸Š8æœˆ() As String
+   å£²ä¸Š8æœˆ = strå£²ä¸Š8æœˆ
 End Property
 
-'”„ã8ŒƒvƒƒpƒeƒB(•ÏX)
-Public Property Let ”„ã8Œ(ByVal vNewValue As String)
-   str”„ã8Œ = vNewValue
+'å£²ä¸Š8æœˆãƒ—ãƒ­ãƒ‘ãƒ†ã‚£(å¤‰æ›´)
+Public Property Let å£²ä¸Š8æœˆ(ByVal vNewValue As String)
+   strå£²ä¸Š8æœˆ = vNewValue
 End Property
 
-'”„ã9ŒƒvƒƒpƒeƒB(æ“¾)
-Public Property Get ”„ã9Œ() As String
-   ”„ã9Œ = str”„ã9Œ
+'å£²ä¸Š9æœˆãƒ—ãƒ­ãƒ‘ãƒ†ã‚£(å–å¾—)
+Public Property Get å£²ä¸Š9æœˆ() As String
+   å£²ä¸Š9æœˆ = strå£²ä¸Š9æœˆ
 End Property
 
-'”„ã9ŒƒvƒƒpƒeƒB(•ÏX)
-Public Property Let ”„ã9Œ(ByVal vNewValue As String)
-   str”„ã9Œ = vNewValue
+'å£²ä¸Š9æœˆãƒ—ãƒ­ãƒ‘ãƒ†ã‚£(å¤‰æ›´)
+Public Property Let å£²ä¸Š9æœˆ(ByVal vNewValue As String)
+   strå£²ä¸Š9æœˆ = vNewValue
 End Property
 
-'”„ã10ŒƒvƒƒpƒeƒB(æ“¾)
-Public Property Get ”„ã10Œ() As String
-   ”„ã10Œ = str”„ã10Œ
+'å£²ä¸Š10æœˆãƒ—ãƒ­ãƒ‘ãƒ†ã‚£(å–å¾—)
+Public Property Get å£²ä¸Š10æœˆ() As String
+   å£²ä¸Š10æœˆ = strå£²ä¸Š10æœˆ
 End Property
 
-'”„ã10ŒƒvƒƒpƒeƒB(•ÏX)
-Public Property Let ”„ã10Œ(ByVal vNewValue As String)
-   str”„ã10Œ = vNewValue
+'å£²ä¸Š10æœˆãƒ—ãƒ­ãƒ‘ãƒ†ã‚£(å¤‰æ›´)
+Public Property Let å£²ä¸Š10æœˆ(ByVal vNewValue As String)
+   strå£²ä¸Š10æœˆ = vNewValue
 End Property
 
-'”„ã11ŒƒvƒƒpƒeƒB(æ“¾)
-Public Property Get ”„ã11Œ() As String
-   ”„ã11Œ = str”„ã11Œ
+'å£²ä¸Š11æœˆãƒ—ãƒ­ãƒ‘ãƒ†ã‚£(å–å¾—)
+Public Property Get å£²ä¸Š11æœˆ() As String
+   å£²ä¸Š11æœˆ = strå£²ä¸Š11æœˆ
 End Property
 
-'”„ã11ŒƒvƒƒpƒeƒB(•ÏX)
-Public Property Let ”„ã11Œ(ByVal vNewValue As String)
-   str”„ã11Œ = vNewValue
+'å£²ä¸Š11æœˆãƒ—ãƒ­ãƒ‘ãƒ†ã‚£(å¤‰æ›´)
+Public Property Let å£²ä¸Š11æœˆ(ByVal vNewValue As String)
+   strå£²ä¸Š11æœˆ = vNewValue
 End Property
 
-'”„ã12ŒƒvƒƒpƒeƒB(æ“¾)
-Public Property Get ”„ã12Œ() As String
-   ”„ã12Œ = str”„ã12Œ
+'å£²ä¸Š12æœˆãƒ—ãƒ­ãƒ‘ãƒ†ã‚£(å–å¾—)
+Public Property Get å£²ä¸Š12æœˆ() As String
+   å£²ä¸Š12æœˆ = strå£²ä¸Š12æœˆ
 End Property
 
-'”„ã12ŒƒvƒƒpƒeƒB(•ÏX)
-Public Property Let ”„ã12Œ(ByVal vNewValue As String)
-   str”„ã12Œ = vNewValue
+'å£²ä¸Š12æœˆãƒ—ãƒ­ãƒ‘ãƒ†ã‚£(å¤‰æ›´)
+Public Property Let å£²ä¸Š12æœˆ(ByVal vNewValue As String)
+   strå£²ä¸Š12æœˆ = vNewValue
 End Property

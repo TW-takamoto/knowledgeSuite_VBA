@@ -15,13 +15,13 @@ Sub KnowledgeSuiteSummaryCalc()
     ' テーブルの存在確認
     On Error Resume Next
     For Each tbl In ws.ListObjects
-        If InStr(tbl.name, "KnowledgeSuiteTableStock_blue") > 0 Then
+        If InStr(tbl.Name, "KnowledgeSuiteTableStock_blue") > 0 Then
             Set KnowledgeSuiteTableStock_blue = tbl
-        ElseIf InStr(tbl.name, "KnowledgeSuiteTableSpot_blue") > 0 Then
+        ElseIf InStr(tbl.Name, "KnowledgeSuiteTableSpot_blue") > 0 Then
             Set KnowledgeSuiteTableSpot_blue = tbl
-        ElseIf InStr(tbl.name, "KnowledgeSuiteTableStock_green") > 0 Then
+        ElseIf InStr(tbl.Name, "KnowledgeSuiteTableStock_green") > 0 Then
             Set KnowledgeSuiteTableStock_green = tbl
-        ElseIf InStr(tbl.name, "KnowledgeSuiteTableSpot_green") > 0 Then
+        ElseIf InStr(tbl.Name, "KnowledgeSuiteTableSpot_green") > 0 Then
             Set KnowledgeSuiteTableSpot_green = tbl
         End If
     Next tbl
@@ -127,7 +127,7 @@ Sub AddSummaryForGRP(tbl As ListObject)
             End Select
             
             ' 結果をセルに設定
-            If InStr(tbl.name, "KnowledgeSuiteTableStock_blue") > 0 Then
+            If InStr(tbl.Name, "KnowledgeSuiteTableStock_blue") > 0 Then
 
                 ' 事業部全体のデータを計算
                 Cells(WholeSummaryInitialLine.ストック, summaryCol) = totalFormula
@@ -153,7 +153,7 @@ Sub AddSummaryForGRP(tbl As ListObject)
                     Case GroupConst.ワークステクノロジー
                         Cells(GroupSummaryInitialLine.ワークステクノロジーストック, summaryCol) = totalGroupFormula
                 End Select
-            ElseIf InStr(tbl.name, "KnowledgeSuiteTableSpot_blue") > 0 Then
+            ElseIf InStr(tbl.Name, "KnowledgeSuiteTableSpot_blue") > 0 Then
                 
                 ' 事業部全体のデータを計算
                 Cells(WholeSummaryInitialLine.スポット, summaryCol) = totalFormula
@@ -180,7 +180,7 @@ Sub AddSummaryForGRP(tbl As ListObject)
                         Cells(GroupSummaryInitialLine.ワークステクノロジースポット, summaryCol) = totalGroupFormula
                 End Select
 
-            ElseIf InStr(tbl.name, "KnowledgeSuiteTableStock_green") > 0 Then
+            ElseIf InStr(tbl.Name, "KnowledgeSuiteTableStock_green") > 0 Then
 
                 totalFormula = totalFormula & " + " & Cells(WholeSummaryInitialLine.ストック, summaryCol).Address
                 ' 事業部全体のデータを計算
@@ -217,7 +217,7 @@ Sub AddSummaryForGRP(tbl As ListObject)
                         Cells(lastRow + 50, summaryCol) = totalGroupFormula
                 End Select
 
-            ElseIf InStr(tbl.name, "KnowledgeSuiteTableSpot_green") > 0 Then
+            ElseIf InStr(tbl.Name, "KnowledgeSuiteTableSpot_green") > 0 Then
 
                 totalFormula = totalFormula & " + " & Cells(WholeSummaryInitialLine.スポット, summaryCol).Address
                 ' 事業部全体のデータを計算
@@ -259,6 +259,3 @@ NextColumn:
     Next i
 
 End Sub
-
-
-

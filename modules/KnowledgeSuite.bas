@@ -103,13 +103,13 @@ Sub SalesDataProcessing()
     ' テーブルの存在確認
     On Error Resume Next
     For Each tbl In ws.ListObjects
-        If InStr(tbl.name, "KnowledgeSuiteTableStock_blue") > 0 Then
+        If InStr(tbl.Name, "KnowledgeSuiteTableStock_blue") > 0 Then
             Set KnowledgeSuiteTableStock_blue = tbl
-        ElseIf InStr(tbl.name, "KnowledgeSuiteTableSpot_blue") > 0 Then
+        ElseIf InStr(tbl.Name, "KnowledgeSuiteTableSpot_blue") > 0 Then
             Set KnowledgeSuiteTableSpot_blue = tbl
-        ElseIf InStr(tbl.name, "KnowledgeSuiteTableStock_green") > 0 Then
+        ElseIf InStr(tbl.Name, "KnowledgeSuiteTableStock_green") > 0 Then
             Set KnowledgeSuiteTableStock_green = tbl
-        ElseIf InStr(tbl.name, "KnowledgeSuiteTableSpot_green") > 0 Then
+        ElseIf InStr(tbl.Name, "KnowledgeSuiteTableSpot_green") > 0 Then
             Set KnowledgeSuiteTableSpot_green = tbl
         End If
     Next tbl
@@ -161,6 +161,7 @@ Sub SalesDataProcessing()
         outArray(outRow - 1).売上12月 = val.売上12月
         outArray(outRow - 1).売上金額 = val.売上金額
         outArray(outRow - 1).フェーズ = val.フェーズ
+        outArray(outRow - 1).受注見込 = val.受注見込
     Next
     
     If Not (KnowledgeSuiteTableStock_blue.DataBodyRange Is Nothing) Then
@@ -180,12 +181,23 @@ Sub SalesDataProcessing()
     Dim i As Integer
     Dim N As Long
     Dim TF As String
+
+    ' 確定フェーズ
     Dim validPhasesConfirmed As Variant
     validPhasesConfirmed = Array("契約締結", "検収書受領", "受注", "請求完了", "納品完了")
     Dim isValidPhase As Boolean
+
+    ' 除外フェーズ
     Dim excludedPhases As Variant
-    excludedPhases = Array("敗北（案件消滅）", "アプローチ開始")
+    excludedPhases = Array("敗北（案件消滅）", "失注")
+
+    ' 受注見込
+    Dim validProspects As Variant
+    validProspects = Array("A", "B")
+    Dim isValidProspect As Boolean
+
     Dim phase As Variant
+    Dim prospect As Variant
     For i = 0 To outRow - 1
         Dim lng売上1月 As Long: If outArray(i).売上1月 = "" Then lng売上1月 = 0 Else lng売上1月 = CLng(outArray(i).売上1月)
         Dim lng売上2月 As Long: If outArray(i).売上2月 = "" Then lng売上2月 = 0 Else lng売上2月 = CLng(outArray(i).売上2月)
@@ -228,6 +240,15 @@ Sub SalesDataProcessing()
             End If
         Next phase
 
+        ' 受注見込の確認
+        isValidProspect = False
+        For Each prospect In validProspects
+            If prospect = outArray(i).受注見込 Then
+                isValidProspect = True
+                Exit For
+            End If
+        Next prospect
+
         ' 行データを配列として準備
         Dim rowData(1 To 1, 1 To 23) As Variant
         rowData(1, KnowledgeSuiteTableColumn.区分1 + 1) = outArray(i).区分1
@@ -267,14 +288,14 @@ Sub SalesDataProcessing()
             Set newRowStockBlue = KnowledgeSuiteTableStock_blue.ListRows.Add
             newRowStockBlue.Range.Value = rowData
             
-        ElseIf outArray(i).区分1 = "フロー" And isValidPhase = False Then
+        ElseIf outArray(i).区分1 = "フロー" And isValidPhase = False And isValidProspect = True Then
             ' スポット緑テーブルに行を追加
             Dim newRowSpotGreen As ListRow
             rowData(1, KnowledgeSuiteTableColumn.区分1 + 1) = "スポット"
             Set newRowSpotGreen = KnowledgeSuiteTableSpot_green.ListRows.Add
             newRowSpotGreen.Range.Value = rowData
             
-        ElseIf outArray(i).区分1 <> "スポット" And isValidPhase = False Then
+        ElseIf outArray(i).区分1 <> "スポット" And isValidPhase = False And isValidProspect = True Then
             ' ストック緑テーブルに行を追加
             Dim newRowStockGreen As ListRow
             Set newRowStockGreen = KnowledgeSuiteTableStock_green.ListRows.Add
@@ -282,30 +303,6 @@ Sub SalesDataProcessing()
         End If
 
 NextRow:
-    Next i
-
-    ' ワークステーブル作成
-    Dim newRowWT As ListRow
-    Dim rowDataWT(1 To 1, 1 To 23) As Variant
-    rowDataWT(1, KnowledgeSuiteTableColumn.grp + 1) = "WT"
-    For i = 1 To 30
-        Set newRowWT = KnowledgeSuiteTableStock_blue.ListRows.Add
-        newRowWT.Range.Value = rowDataWT
-    Next i
-
-    For i = 1 To 30
-        Set newRowWT = KnowledgeSuiteTableSpot_blue.ListRows.Add
-        newRowWT.Range.Value = rowDataWT
-    Next i
-
-    For i = 1 To 30
-        Set newRowWT = KnowledgeSuiteTableStock_green.ListRows.Add
-        newRowWT.Range.Value = rowDataWT
-    Next i
-
-    For i = 1 To 30
-        Set newRowWT = KnowledgeSuiteTableSpot_green.ListRows.Add
-        newRowWT.Range.Value = rowDataWT
     Next i
 
     ' データをGRPごとにグループ化する処理を追加
@@ -529,9 +526,9 @@ Sub AddSubtotalsForGRP(tbl As ListObject, ByRef rowDifference As Long)
     End If
     
     ' テーブルの更新後の行数計算
-    If tbl.name = "KnowledgeSuiteTableStock_blue" Then
+    If tbl.Name = "KnowledgeSuiteTableStock_blue" Then
         rowDifference = rowDifference + (tbl.ListRows.Count - initialRowCountStockBlue)
-    ElseIf tbl.name = "KnowledgeSuiteTableSpot_blue" Then
+    ElseIf tbl.Name = "KnowledgeSuiteTableSpot_blue" Then
         rowDifference = rowDifference + (tbl.ListRows.Count - initialRowCountSpotBlue)
     End If
     
@@ -755,7 +752,3 @@ Function IsEmptyArray(arrayTmp As Variant) As Boolean
 ERROR_:
     IsEmptyArray = True
 End Function
-
-
-
-

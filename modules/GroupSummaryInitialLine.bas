@@ -16,9 +16,3 @@ Public Const グローバルマーケットストック As Integer = 44
 Public Const グローバルマーケットスポット As Integer = 45
 Public Const ワークステクノロジーストック As Integer = 49
 Public Const ワークステクノロジースポット As Integer = 50
-
-
-
-
-
-
